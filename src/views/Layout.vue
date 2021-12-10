@@ -1,11 +1,13 @@
 <template>
-<app-header-nav/>
-<!-- 内容容器 -->
-<div class="container">
-  <!-- 二级路由 -->
-  <RouterView />
-</div>
-<app-footer/>
+  <div class="layout">
+    <app-header-nav />
+    <!-- 内容容器 -->
+    <div class="container">
+      <!-- 二级路由 -->
+      <RouterView />
+    </div>
+  </div>
+  <app-footer />
 </template>
 <script>
 import { defineComponent } from 'vue'
@@ -22,11 +24,14 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.container {
-  width: 100%;
-  background-color: pink;
-  height: calc(100% - 57px);
-  min-width: 1170px;
-  position: relative;
+.layout {
+  // border-top: 5px solid #4a75b9;
+  background-color: #f2f2f2;
+  .container {
+    width: 100%;
+    height: calc(100% - 57px);
+    min-width: 1170px;
+    position: relative;
+  }
 }
 </style>
