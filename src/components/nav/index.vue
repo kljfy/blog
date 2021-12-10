@@ -48,7 +48,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 .nav {
   background-color: #fff;
-  box-shadow: -1px -1px 3px 2px #ddd;
+  box-shadow: -1px -1px 3px 3px #f2f2f2;
   .nav-content {
     margin: 0 auto;
     width: 70%;
