@@ -53,6 +53,7 @@ export default defineComponent({
     margin: 0 auto;
     width: 70%;
     min-width: 1170px;
+    max-width: 1370px;
     height: 70px;
     display: flex;
     justify-content: space-between;

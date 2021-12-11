@@ -33,6 +33,7 @@
     background-color: #434d54;
     display: flex;
     justify-content: center;
+    min-width: 1170px;
     .left-img {
       width: 250px;
       padding: 0 10px;
