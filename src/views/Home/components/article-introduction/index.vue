@@ -1,9 +1,5 @@
 <template>
-  <div class="home">
-    <div class="banner"></div>
-    <div class="home-info">
-      <RouterView />
-      <!-- <div class="article-introduction">
+  <div class="article-introduction">
         <div class="new-blog">
           <div class="title">
             <span>最新博文</span>
@@ -16,7 +12,7 @@
                   <img src="" alt="封面" />
                 </div>
                 <div class="blog-txt">
-                  <p class="txt-title">
+                  <p class="txt-title" @click="goToArticleInfo()">
                     XXX的博客_企业类模板分享_律师事务所类型模板
                   </p>
                   <p class="txt-info">
@@ -126,129 +122,113 @@
             </ul>
           </div>
         </div>
-      </div> -->
-      <div class="right-info">
-        <div class="user-info">
-          <div class="avator-img">
-            <img src="../../assets/images/avator.jpg" alt="" />
-          </div>
-          <div class="person-name">见川</div>
-          <ul class="autograph">
-            <li>时间从来不是朋友，岁月流逝的底色本来就很冷</li>
-          </ul>
-        </div>
-        <div class="tools">
-          <div class="tool-title">
-            <span>工具集</span>
-            <i>更多></i>
-          </div>
-          <ul class="tools-list">
-            <li @click="goToTool()">房贷计算</li>
-            <li @click="goToTool()">json格式转换</li>
-            <li @click="goToTool()">正则表达式</li>
-            <li @click="goToTool()">数字金额转大写</li>
-          </ul>
-        </div>
       </div>
-    </div>
-  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import { message } from 'ant-design-vue'
-
+import { EyeOutlined, LikeOutlined } from '@ant-design/icons-vue'
+import { useRouter, useRoute } from 'vue-router'
 export default defineComponent({
-  name: 'home',
+  name: 'articleIntroduction',
+  components: {
+    EyeOutlined,
+    LikeOutlined
+  },
   setup () {
-    const goToTool = () => {
-      message.info('正在玩命开发中')
+    const router = useRouter()
+    const goToArticleInfo = () => {
+      router.push({
+        name: 'articleInfo'
+      })
     }
-
     return {
-      goToTool
+      goToArticleInfo
     }
   }
 })
 </script>
+
 <style lang="scss" scoped>
-.home {
-  // margin-top: 90px;
-  // padding-bottom: 20px;
-  .banner {
-    margin-bottom: 20px;
-    height: 400px;
-    background-image: url(../..//assets/images/banner.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    box-shadow: -1px -1px 3px 3px #f2f2f2;
-  }
-  .home-info {
-    margin: 0 auto;
-    width: 70%;
-    min-width: 1170px;
-    max-width: 1370px;
-    display: flex;
-    justify-content: space-between;
-    .right-info {
-      width: 25%;
-      .user-info {
+  .article-introduction {
+      width: 75%;
+      padding-right: 20px;
+      .new-blog {
+        border: 1px solid #f5f5f5;
         background-color: #fff;
-        padding: 30px 20px 20px;
-        .avator-img {
-          margin: 0 auto;
-          height: 100px;
-          width: 100px;
-          border-radius: 50%;
-          overflow: hidden;
-          img {
-            width: 100%;
-            height: 100%;
-          }
-        }
-        .person-name {
-          padding: 10px 0;
-          text-align: center;
-          font-size: 16px;
-        }
-        .autograph {
-          li {
-            padding: 5px 0;
-            color: #666;
-          }
-        }
-      }
-      .tools {
-        margin-top: 20px;
-        padding-bottom: 20px;
-        background-color: #fff;
-        .tool-title {
-          height: 50px;
+        box-shadow: -1px -1px 5px 1px #f2f2f2;
+        .title {
+          height: 70px;
           padding: 0 20px;
           border-bottom: 1px solid #f2f2f2;
-          line-height: 50px;
-          display: flex;
-          justify-content: space-between;
           span {
+            float: left;
+            line-height: 70px;
             font-size: 18px;
             cursor: default;
           }
           i {
-            font-size: 12px;
-            color: #aaa;
+            float: right;
+            line-height: 70px;
             cursor: pointer;
+            color: #aaa;
           }
         }
-        .tools-list {
-          margin-left: 40px;
+        .body {
           li {
-            padding-top: 10px;
-            list-style: square;
-            cursor: pointer;
+            height: 180px;
+            border-bottom: 1px solid #f2f2f2;
+            padding: 20px;
+            .blog-cover {
+              width: 180px;
+              height: 135px;
+              margin-right: 20px;
+              float: left;
+              img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+            .blog-txt {
+              position: relative;
+              float: right;
+              height: 135px;
+              width: calc(100% - 200px);
+              .txt-title {
+                font-size: 18px;
+                color: #3a76bf;
+                margin-bottom: 10px;
+                cursor: pointer;
+              }
+              .txt-info {
+                height: 70px;
+                font-size: 14px;
+              }
+              .txt-tip {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                right: 0;
+                height: 30px;
+                line-height: 30px;
+                display: flex;
+                justify-content: space-between;
+                padding: 0 20px;
+                font-size: 12px;
+                color: #666;
+                .left-tip {
+                  width: 250px;
+                  display: flex;
+                  justify-content: space-between;
+                  cursor: default;
+                }
+                .right-more {
+                  cursor: pointer;
+                }
+              }
+            }
           }
         }
       }
     }
-  }
-}
 </style>

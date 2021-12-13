@@ -29,7 +29,9 @@ export default defineComponent({
   background-color: #f2f2f2;
   .container {
     width: 100%;
-    height: calc(100% - 57px);
+    margin-top: 70px;
+    // height: calc(100% - 57px);
+    padding: 20px 0;
     min-width: 1170px;
     position: relative;
   }

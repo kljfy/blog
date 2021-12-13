@@ -5,22 +5,36 @@ import Layout from '../views/Layout.vue'
 const routes = [
   {
     path: '/',
+    redirect: { name: 'home' },
     component: Layout,
     children: [
       {
-        path: '/',
+        path: 'home',
         name: 'home',
-        component: () => import(/* webpackChunkName: "home" */ '../views/Home/index.vue')
+        redirect: { name: 'articleIntroduction' },
+        component: () => import(/* webpackChunkName: "home" */ '../views/Home/index.vue'),
+        children: [
+          {
+            path: 'articleIntroduction',
+            name: 'articleIntroduction',
+            component: () => import(/* webpackChunkName: "home" */ '../views/Home/components/article-introduction/index.vue')
+          },
+          {
+            path: 'articleInfo',
+            name: 'articleInfo',
+            component: () => import(/* webpackChunkName: "home" */ '../views/Home/components/article-info/index.vue')
+          }
+        ]
       },
       {
         path: 'foreEnd',
         name: 'foreEnd',
-        component: () => import(/* webpackChunkName: "foreend" */ '../views/ForeEnd/index.vue')
+        component: () => import(/* webpackChunkName: "home" */ '../views/ForeEnd/index.vue')
       },
       {
         path: 'nodejs',
         name: 'nodejs',
-        component: () => import(/* webpackChunkName: "nodejs" */ '../views/Nodejs/index.vue')
+        component: () => import(/* webpackChunkName: "home" */ '../views/Nodejs/index.vue')
       }
     ]
   }

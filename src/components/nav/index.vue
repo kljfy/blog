@@ -1,5 +1,5 @@
 <template>
-  <div class="nav">
+  <div class="nav-out">
     <div class="nav-content">
       <div class="logo" @click="skipToHome">见川</div>
       <a-menu mode="horizontal">
@@ -23,7 +23,7 @@ import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
 // import { AppstoreOutlined, BankOutlined } from '@ant-design/icons-vue'
 export default defineComponent({
-  name: 'nav',
+  name: 'navOut',
   components: {
     // AppstoreOutlined,
     // BankOutlined
@@ -46,7 +46,13 @@ export default defineComponent({
 })
 </script>
 <style lang="scss" scoped>
-.nav {
+.nav-out {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  height: 70px;
+  width: 100%;
   background-color: #fff;
   box-shadow: -1px -1px 3px 3px #f2f2f2;
   .nav-content {
