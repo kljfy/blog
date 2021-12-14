@@ -23,9 +23,19 @@ const routes = [
             path: 'articleInfo',
             name: 'articleInfo',
             component: () => import(/* webpackChunkName: "home" */ '../views/Home/components/article-info/index.vue')
+          },
+          {
+            path: 'articleList',
+            name: 'articleList',
+            component: () => import(/* webpackChunkName: "home" */ '../views/Home/components/article-list/index.vue')
           }
         ]
       },
+      // {
+      //   path: 'articleList',
+      //   name: 'articleList',
+      //   component: () => import(/* webpackChunkName: "article" */ '../views/Article/index.vue')
+      // },
       {
         path: 'foreEnd',
         name: 'foreEnd',

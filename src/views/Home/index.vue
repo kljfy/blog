@@ -1,132 +1,8 @@
 <template>
   <div class="home">
-    <div class="banner"></div>
+    <div class="banner" v-if="false"></div>
     <div class="home-info">
       <RouterView />
-      <!-- <div class="article-introduction">
-        <div class="new-blog">
-          <div class="title">
-            <span>最新博文</span>
-            <i>更多></i>
-          </div>
-          <div class="body">
-            <ul>
-              <li>
-                <div class="blog-cover">
-                  <img src="" alt="封面" />
-                </div>
-                <div class="blog-txt">
-                  <p class="txt-title">
-                    XXX的博客_企业类模板分享_律师事务所类型模板
-                  </p>
-                  <p class="txt-info">
-                    个人博客类模板分享，自适应手机端，电脑端，ipad端，这套模板是完全手工输入的模板，体积很小，代码简洁，css和js文件只有1个，除了jquery文件外，没有引入别的脚本，很适合用于个人博客类，公司信息类的网站。
-                  </p>
-                  <div class="txt-tip">
-                    <div class="left-tip">
-                      <span>
-                        <eye-outlined />
-                        查看次数:500
-                      </span>
-                      <span>
-                        <like-outlined />
-                        点赞次数:500
-                      </span>
-                    </div>
-                    <div class="right-more">
-                      查看详细+
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="blog-cover">
-                  <img src="" alt="封面" />
-                </div>
-                <div class="blog-txt">
-                  <p class="txt-title">
-                    XXX的博客_企业类模板分享_律师事务所类型模板
-                  </p>
-                  <p class="txt-info">
-                    个人博客类模板分享，自适应手机端，电脑端，ipad端，这套模板是完全手工输入的模板，体积很小，代码简洁，css和js文件只有1个，除了jquery文件外，没有引入别的脚本，很适合用于个人博客类，公司信息类的网站。
-                  </p>
-                  <div class="txt-tip">
-                    <div class="left-tip">
-                      <span>
-                        <eye-outlined />
-                        查看次数:500
-                      </span>
-                      <span>
-                        <like-outlined />
-                        点赞次数:500
-                      </span>
-                    </div>
-                    <div class="right-more">
-                      查看详细+
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="blog-cover">
-                  <img src="" alt="封面" />
-                </div>
-                <div class="blog-txt">
-                  <p class="txt-title">
-                    XXX的博客_企业类模板分享_律师事务所类型模板
-                  </p>
-                  <p class="txt-info">
-                    个人博客类模板分享，自适应手机端，电脑端，ipad端，这套模板是完全手工输入的模板，体积很小，代码简洁，css和js文件只有1个，除了jquery文件外，没有引入别的脚本，很适合用于个人博客类，公司信息类的网站。
-                  </p>
-                  <div class="txt-tip">
-                    <div class="left-tip">
-                      <span>
-                        <eye-outlined />
-                        查看次数:500
-                      </span>
-                      <span>
-                        <like-outlined />
-                        点赞次数:500
-                      </span>
-                    </div>
-                    <div class="right-more">
-                      查看详细+
-                    </div>
-                  </div>
-                </div>
-              </li>
-              <li>
-                <div class="blog-cover">
-                  <img src="" alt="封面" />
-                </div>
-                <div class="blog-txt">
-                  <p class="txt-title">
-                    XXX的博客_企业类模板分享_律师事务所类型模板
-                  </p>
-                  <p class="txt-info">
-                    个人博客类模板分享，自适应手机端，电脑端，ipad端，这套模板是完全手工输入的模板，体积很小，代码简洁，css和js文件只有1个，除了jquery文件外，没有引入别的脚本，很适合用于个人博客类，公司信息类的网站。
-                  </p>
-                  <div class="txt-tip">
-                    <div class="left-tip">
-                      <span>
-                        <eye-outlined />
-                        查看次数:500
-                      </span>
-                      <span>
-                        <like-outlined />
-                        点赞次数:500
-                      </span>
-                    </div>
-                    <div class="right-more">
-                      查看详细+
-                    </div>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
       <div class="right-info">
         <div class="user-info">
           <div class="avator-img">
@@ -151,15 +27,20 @@
         </div>
       </div>
     </div>
+    <app-footer />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import AppFooter from '@/components/footer/index.vue'
 import { message } from 'ant-design-vue'
 
 export default defineComponent({
   name: 'home',
+  components: {
+    AppFooter
+  },
   setup () {
     const goToTool = () => {
       message.info('正在玩命开发中')
@@ -173,18 +54,18 @@ export default defineComponent({
 </script>
 <style lang="scss" scoped>
 .home {
-  // margin-top: 90px;
-  // padding-bottom: 20px;
+  background-color: #f2f2f2;
+  padding-top: 60px;
   .banner {
-    margin-bottom: 20px;
     height: 400px;
-    background-image: url(../..//assets/images/banner.jpeg);
+    background-image: url(../../assets/images/banner.jpeg);
     background-repeat: no-repeat;
     background-size: 100% 100%;
     box-shadow: -1px -1px 3px 3px #f2f2f2;
   }
   .home-info {
     margin: 0 auto;
+    padding: 20px 0;
     width: 70%;
     min-width: 1170px;
     max-width: 1370px;
@@ -245,6 +126,9 @@ export default defineComponent({
             padding-top: 10px;
             list-style: square;
             cursor: pointer;
+            &:hover {
+              color: #74a1f1
+            }
           }
         }
       }
