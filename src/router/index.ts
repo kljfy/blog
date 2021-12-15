@@ -47,6 +47,24 @@ const routes = [
         component: () => import(/* webpackChunkName: "home" */ '../views/Nodejs/index.vue')
       }
     ]
+  },
+  {
+    path: '/admin',
+    name: 'admin',
+    redirect: { name: 'adminHome' },
+    component: () => import(/* webpackChunkName: "admin" */ '../views/Admin/index.vue'),
+    children: [
+      {
+        path: 'home',
+        name: 'adminHome',
+        component: () => import(/* webpackChunkName: "admin" */ '@/views/Admin/pages/admin-home/index.vue')
+      },
+      {
+        path: 'adminNewArticle',
+        name: 'adminNewArticle',
+        component: () => import(/* webpackChunkName: "admin" */ '@/views/Admin/pages/admin-new-article/index.vue')
+      }
+    ]
   }
   // {
   //   path: '/about',

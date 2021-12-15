@@ -8,6 +8,7 @@
         <a-menu-item key="nodejs" @click="skipToNodejs"> nodejs </a-menu-item>
         <a-menu-item key="tool"> 工具 </a-menu-item>
       </a-menu>
+      <div class="login-manage" @click="goToAdmin">登录</div>
     </div>
   </div>
 </template>
@@ -34,11 +35,15 @@ export default defineComponent({
     const goToArticle = () => {
       router.push({ name: 'articleList' })
     }
+    const goToAdmin = () => {
+      router.push({ name: 'admin' })
+    }
 
     return {
       skipToNodejs,
       skipToHome,
-      goToArticle
+      goToArticle,
+      goToAdmin
     }
   }
 })
@@ -79,6 +84,14 @@ export default defineComponent({
     }
     .ant-menu {
       font-size: 16px;
+    }
+    .login-manage {
+      width: 40px;
+      height: 60px;
+      text-align: center;
+      line-height: 60px;
+      font-size: 16px;
+      cursor: pointer;
     }
   }
 }
